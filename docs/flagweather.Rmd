@@ -1,0 +1,49 @@
+---
+title: "Weather_over_time"
+author: "Marcus Luca"
+date: "2026-04-14"
+output: html_document
+---
+
+
+```{r warning=FALSE}
+library(MarcusFlagWeather)
+library(tidyverse)
+```
+
+
+```{r}
+data("Flagstaff_Weather")
+```
+
+Graph #1 (Snow VS Date)
+
+```{r}
+ggplot(Flagstaff_Weather,
+       aes( x = DATE,
+            y = SNOW)) +
+  geom_point()
+```
+
+Graph #2 (Precipitation vs DATE)
+
+
+```{r}
+ggplot(Flagstaff_Weather,
+       aes( x = DATE ,
+            y = PRCP)) +
+  geom_point()
+```
+
+
+
+Graph #3 (Max teperature VS Date)
+```{r}
+ggplot(slice_sample(Flagstaff_Weather,n = 1000),
+       aes( x = DATE ,
+            y = TMAX)) +
+  geom_point()
+```
+
+
+
